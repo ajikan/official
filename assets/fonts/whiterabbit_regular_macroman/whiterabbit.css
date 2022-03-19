@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'whiterabt';
+    src: url('whitrabt-webfont.eot');
+    src: url('whitrabt-webfont.eot?#iefix') format('embedded-opentype'),
+         /*url('whitrabt-webfont.woff2') format('woff2'),*/
+         url('whitrabt-webfont.woff') format('woff'),
+         url('whitrabt-webfont.ttf') format('truetype'),
+         url('whitrabt-webfont.svg#newregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
