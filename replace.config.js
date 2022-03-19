@@ -6,7 +6,7 @@ module.exports = {
         /\.\/src\/index\.js/g,
     ],
     to: [
-        '/matrix-vr/assets/',
+        '/official/assets/',
         '',
         'index.js'
     ]

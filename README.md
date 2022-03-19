@@ -10,4 +10,4 @@ Thank you all!
 
 ## Licence
 
-The code in this repo is distributed under the MIT License. See [LICENSE](https://github.com/pazdera/matrix-vr/blob/master/LICENSE) for details.
+The code in this repo is distributed under the MIT License. See [LICENSE](https://github.com/ajikan/official/blob/master/LICENSE) for details.

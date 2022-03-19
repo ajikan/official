@@ -10,7 +10,7 @@ export default {
         replace({
             include: './src/**/*.js',
             delimiters: ['', ''],
-            '/assets/': '/matrix-vr/assets/'
+            '/assets/': '/official/assets/'
         }),
         resolve(),
         copy({
