@@ -51,8 +51,8 @@ GlitchPass.prototype = Object.assign( Object.create( Pass.prototype ), {
 		this.uniforms[ "tDiffuse" ].value = readBuffer.texture;
 		this.uniforms[ 'seed' ].value = Math.random();//default seeding
 		this.uniforms[ 'byp' ].value = 0;
-
-		if ( this.curF % this.randX == 0 || this.goWild == true ) {
+		this.duration = 50;
+		if ( (this.curF < this.duration && this.curF % this.randX == 0) || this.goWild == true ) {
 
 			this.uniforms[ 'amount' ].value = Math.random() / 30;
 			this.uniforms[ 'angle' ].value = _Math.randFloat( - Math.PI, Math.PI );
@@ -63,7 +63,7 @@ GlitchPass.prototype = Object.assign( Object.create( Pass.prototype ), {
 			this.curF = 0;
 			this.generateTrigger();
 
-		} else if ( this.curF % this.randX < this.randX / 5 ) {
+		} else if ( this.curF < this.duration && this.curF % this.randX < this.randX / 5 ) {
 
 			this.uniforms[ 'amount' ].value = Math.random() / 90;
 			this.uniforms[ 'angle' ].value = _Math.randFloat( - Math.PI, Math.PI );

@@ -1,7 +1,7 @@
 {
-  "name": "matrix-vr",
+  "name": "personal-website",
   "version": "1.0.0",
-  "description": "The construct and digital rain from The Matrix in WebVR.",
+  "description": "My personal website built with love using THREE.js",
   "main": "src/index.js",
   "scripts": {
     "serve": "http-server .",
@@ -10,7 +10,7 @@
     "serve-prod": "node serve-prod.js",
     "deploy": "gh-pages -d dist"
   },
-  "author": "Radek Pazdera <me@radek.io>",
+  "author": "Andrew Zhang <andrew.a.zhang416@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "http-server": "^0.11.1"

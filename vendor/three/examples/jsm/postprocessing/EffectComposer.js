@@ -114,6 +114,20 @@ Object.assign( EffectComposer.prototype, {
 	insertPass: function ( pass, index ) {
 
 		this.passes.splice( index, 0, pass );
+		var size = this.renderer.getDrawingBufferSize( new Vector2() );
+		pass.setSize( size.width, size.height );
+
+	},
+
+	removePass( pass ) {
+
+		const index = this.passes.indexOf( pass );
+
+		if ( index !== - 1 ) {
+
+			this.passes.splice( index, 1 );
+
+		}
 
 	},
 

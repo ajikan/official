@@ -1,63 +1,62 @@
 /* A crude encapsulation of DOM operations */
 export const ui = {
-    buttons: document.querySelector('.buttons'),
     overlay: document.querySelector('.overlay'),
-    buttonVR: document.querySelector('#start'),
-    button360: document.querySelector('.button-360'),
-    heading: document.querySelector('h1'),
-    tagline: document.querySelector('.tagline'),
-
+    container: document.querySelector('.container'),
+    input: document.querySelector('.four-oh-four-form input'),
+    newOutput: document.querySelector('.new-output'),
+    fourOhFourForm: document.querySelector('.four-oh-four-form'),
+    terminal: document.querySelector('.terminal'),
+    header: document.querySelector('.header'),
     loading: document.querySelector('.loading'),
     progressBar: document.querySelector('#progress-bar'),
+    about: document.querySelector('.about'),
+    spine: document.querySelector('.spine-outer'),
 
-    toggleVR: document.querySelector('.toggle-vr'),
-
-    displayButton(type) {
-        if (type === 'vr') {
-            this.buttonVR.classList.remove('no-vr');
-            this.button360.classList.add('hidden');
-        } else {
-            this.buttonVR.classList.add('no-vr');
-            this.button360.classList.remove('hidden');
-        }
-    },
     hideProgress() {
         this.loading.classList.add('fade');
     },
     fadeIn() {
         this.loading.classList.add('hidden');
-        this.buttons.classList.remove('fade');
-        this.tagline.classList.remove('fade')
+        this.container.classList.remove('fade');
+        this.header.classList.remove('fade');
         canvas.classList.remove('fade');
+        this.input.focus();
     },
     updateProgress(progress) {
         this.progressBar.style.width = `${100 * progress}%`;
     },
-    setupListeners(vr, startConstruct) {
-        this.buttonVR.addEventListener('click', () => {
-            if (vr.state === 'ready') {
-                startConstruct();
-            }
+    setupListeners(startConstruct) {
+        document.querySelector('.container').addEventListener('click', () => {
+            document.querySelector('.four-oh-four-form input').focus();
         });
-        this.button360.addEventListener('click', () => {
-            if (vr.state === 'not-available') {
-                startConstruct();
-            }
+        document.querySelector('.four-oh-four-form input').addEventListener('keyup', () => {
+            document.querySelector('.new-output').innerText = document.querySelector('.four-oh-four-form input').value;
         });
-        this.toggleVR.addEventListener('click', () => {
-            if (vr.state === 'in-progress') {
-                vr.endSession();
-            }
-            if (vr.state === 'ready') {
-                vr.startSession();
-            }
+        this.fourOhFourForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            var val = document.querySelector('.four-oh-four-form input').value;
+            document.querySelector('.four-oh-four-form input').value = '';
+            document.querySelector('.new-output').classList.remove('new-output');  
+            document.querySelector('.terminal').insertAdjacentHTML('beforeend', '<p class="prompt">Welcome ' + val + '! I\'m so glad you can join me on this journey...</p>');
+            
+            setTimeout(startConstruct, 2000);
         });
     },
     hideOverlay() {
-        this.overlay.style.display = 'none';
-        this.overlay.style.pointerEvents = 'none';
+        this.container.style.display = 'none';
+        this.terminal.style.display = 'none';
+        this.header.classList.add('fade');
+        //this.overlay.style.display = 'none';
+        //this.overlay.style.pointerEvents = 'none';
     },
-    showToggleVR(flag) {
-        this.toggleVR.style.display = flag ? 'block' : 'none';
+    revealOverlay() {
+        this.about.style.display = 'inline';
+        setTimeout(() => {
+            this.header.classList.remove('fade');
+            //this.header.style.pointerEvents = 'auto';
+            this.about.classList.remove('fade');
+            //this.about.style.pointerEvents = 'auto';
+            this.spine.classList.remove('fade');
+        }, 1000);
     }
 };
