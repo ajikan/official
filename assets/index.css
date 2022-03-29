@@ -97,7 +97,7 @@ html, body {
 
 .subtitle {
   word-spacing: -.1em;
-  letter-spacing: -.05em;
+  letter-spacing: -.03em;
   word-break: break-word;
   hyphens: auto;
 }
@@ -170,18 +170,13 @@ html, body {
   perspective-origin: 50% 50vh;
 }
 
-.gap {
-  height: calc(35vh - 3.5rem);
+.subsection p {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
+  line-height: 1.4;
 }
 
-.overlay .highlight {
-    font-style: italic;
-    color: #ffffff;
-    background: #2ea;
-    padding: 3px;
-    text-decoration: none;
-    text-transform: capitalize;
-    font-weight: normal;
+.gap {
+  height: calc(35vh - 3.5rem);
 }
 
 .fade {
@@ -352,4 +347,58 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
+  }
+
+  /* Phone sizes */
+  @media screen and (max-width: 600px) {
+    .ascii {
+      font: 5.5px monospace; 
+      line-height: 7px; 
+      background-color: black; 
+      color: #1ff042;
+    }
+  
+    .terminal .prompt {
+      font-size: 0.7em;
+      letter-spacing: 0.15em;
+    }
+
+    .overlay .menu {
+      margin: 15px;
+      font-size: 13px;
+    }
+
+    .overlay .menu a {
+      margin: auto 13px;
+    }
+
+    .container {
+      top: 15%;
+    }
+
+    .terminal {
+      padding: 1rem 3rem;
+    }
+
+    .gap {
+      height: calc(45vh - 3.5rem);
+    }
+
+    .overlay .about .subsection {
+      font-size: 0.9rem;
+      padding: 10px;
+      margin: 0 10vw;
+    }
+
+    .spine {
+      left: calc(15vw - 2rem);
+    }
+
+    .spine-target {
+      left: calc(15vw - 2rem - 5px);
+    }
+
+    .title {
+      font-size: 1.9rem;
+    }
   }
