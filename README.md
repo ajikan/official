@@ -22,14 +22,14 @@ To generate a deployable build, run:
 ```
 yarn build
 ```
-Above command will create a ./dist directory containing all of the .assets/, ./src, and index.html contents.
+Above command will create a `./dist` directory containing all of the `.assets/`, `./src`, and `index.html` contents.
 
 Finally to deploy the build, run:
 
 ```
 yarn deploy
 ```
-Above command will copy the contents in .dist/ directory over to the gh-pages branch which is the source for github pages to build from.
+Above command will copy the contents in `.dist/` directory over to the `gh-pages` branch which is the source for github pages to build from.
  
 ## Licence
 
