@@ -51172,6 +51172,12 @@
 	bloom.renderToScreen = true;
 	composer.addPass(bloom);
 
+	/* Enable below for a cool glitch effect everytime mouse moves.
+	window.addEventListener("mousemove", (event) => {
+	    glitch.curF = 0;
+	});
+	*/
+
 	/* Create scene */
 	const scene = new Scene();
 	let sceneStage = 'intro';
@@ -51337,6 +51343,14 @@
 	    }, EasingFunctions.easeInQuad).then(() => {
 	        drops = new DigitalRain(500);
 	        scene.add(drops.mesh);
+	        
+	        window.addEventListener("mousemove", (event) => {
+	            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+	            const mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+
+	            drops.mesh.position.z = gsap.utils.interpolate(drops.mesh.position.z, mouseX/2, 0.1);
+	            drops.mesh.position.y = gsap.utils.interpolate(drops.mesh.position.y, -mouseY/2, 0.1);
+	        });
 	    });
 	    sfx.effects.storm.stop();
 
